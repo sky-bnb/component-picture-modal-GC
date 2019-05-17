@@ -9,14 +9,14 @@ class App extends React.Component {
     this.state = {};
   }
 
-  onComponentDidMount() {
+  componentDidMount() {
     axios.get('/house', {
       params: {
         houseId: 110,
       },
     })
       .then(house => console.log(house))
-      .catch(err => console.log(err));
+      .catch(err => console.log('WHAT HAPPENED', err));
   }
 
   render() {
