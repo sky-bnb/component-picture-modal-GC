@@ -22,7 +22,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>This is Modal</div>
+        <div id='test'>This is Modal</div>
       </div>
     );
   }
