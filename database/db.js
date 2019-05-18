@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/house');
+mongoose.connect('mongodb://localhost/house', { useMongoClient: true });
 
 const houseSchema = new mongoose.Schema({
   house_id: Number,
