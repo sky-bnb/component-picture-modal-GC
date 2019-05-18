@@ -1,19 +1,12 @@
 /* eslint-disable no-plusplus */
 const mongoose = require('mongoose');
 const faker = require('faker');
-
-mongoose.connect('mongodb://localhost/house');
+const House = require('./db.js');
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => {
   console.log('Db connected');
 
-  const houseSchema = new mongoose.Schema({
-    house_id: Number,
-    pictures: [{ description: String, url: String, isVerified: Boolean }],
-  });
-
-  const House = mongoose.model('House', houseSchema);
 
   const promise = [];
 
