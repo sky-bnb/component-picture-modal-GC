@@ -10,13 +10,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/house', {
-      params: {
-        houseId: 110,
-      },
+    axios({
+      method: 'get',
+      url: '/house/110',
     })
-      .then(house => console.log(house))
-      .catch(err => console.log('WHAT HAPPENED', err));
+      .then((house) => {
+        console.log(house);
+      });
   }
 
   render() {
