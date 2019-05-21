@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PhotoGallery from './PhotoGallery.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -7,20 +8,20 @@ class App extends React.Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    axios({
-      method: 'get',
-      url: '/house/110',
-    })
-      .then((house) => {
-        console.log(house);
-      });
-  }
+  // componentDidMount() {
+  //   axios({
+  //     method: 'get',
+  //     url: '/house/110',
+  //   })
+  //     .then((house) => {
+  //       console.log(house);
+  //     });
+  // }
 
   render() {
     return (
       <div>
-        <div id='test'>This is Modal</div>
+        <PhotoGallery className="wrapper" />
       </div>
     );
   }
