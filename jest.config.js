@@ -1,8 +1,8 @@
 module.exports = {
   collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
   moduleFileExtensions: ['js', 'json', 'jsx'],
-  setupFiles: ['<rootDir>/enzyme.config.js'],
-  testEnvironment: 'jsdom',
+  setupFiles: ['<rootDir>/tests/enzyme.config.js'],
+  testEnvironment: 'node',
   testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   testURL: 'http://localhost',
