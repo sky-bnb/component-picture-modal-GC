@@ -1,7 +1,7 @@
 /* eslint-disable no-plusplus */
 const mongoose = require('mongoose');
 const faker = require('faker');
-const House = require('./db.js');
+const db = require('./db.js');
 
 mongoose.connection.on('error', console.error.bind(console, 'connection error:'));
 mongoose.connection.once('open', () => {
@@ -11,7 +11,7 @@ mongoose.connection.once('open', () => {
   const promise = [];
 
   for (let i = 101; i < 201; i++) {
-    const house = new House({
+    const house = new db.House({
       house_id: i,
       pictures: [],
     });

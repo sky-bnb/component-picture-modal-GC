@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = mongoose.connection;
 
 mongoose.connect('mongodb://localhost/house', { useMongoClient: true });
 
@@ -9,4 +10,4 @@ const houseSchema = new mongoose.Schema({
 
 const House = mongoose.model('House', houseSchema);
 
-module.exports = House;
+module.exports = { db, House };
