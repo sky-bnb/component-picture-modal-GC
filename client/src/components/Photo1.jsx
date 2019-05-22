@@ -8,8 +8,11 @@ class Photo1 extends React.Component {
   }
 
   render() {
+    console.log(photos[0]);
     return (
-      <img src={photos[0]} />
+      <div className="photo-1">
+        <img className="photo" src={photos[0]} />
+      </div>
     );
   }
 }

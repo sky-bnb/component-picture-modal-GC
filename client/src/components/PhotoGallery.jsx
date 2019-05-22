@@ -13,12 +13,12 @@ class PhotoGallery extends React.Component {
 
   render() {
     return (
-      <div>
-        <Photo1 className="photo-1" />
-        <Photo2 className="photo-2" />
-        <Photo3 className="photo-3" />
-        <Photo4 className="photo-4" />
-        <Photo5 classname="photo-5" />
+      <div className="container">
+        <Photo1 />
+        <Photo2 />
+        <Photo3 />
+        <Photo4 />
+        <Photo5 />
       </div>
     )
   }
