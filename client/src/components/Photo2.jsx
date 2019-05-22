@@ -1,5 +1,4 @@
 import React from 'react';
-import photos from '../sample_data.js';
 
 class Photo2 extends React.Component {
   constructor(props) {
@@ -10,7 +9,7 @@ class Photo2 extends React.Component {
   render() {
     return (
       <div className="photo-2">
-        <img className="photo" src={photos[1]} />
+        <img className="photo" src={this.props.url} />
       </div>
     );
   }

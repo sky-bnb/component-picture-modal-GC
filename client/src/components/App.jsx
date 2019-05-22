@@ -2,11 +2,14 @@ import React from 'react';
 import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
 import Save from './Save.jsx';
+import house from '../sample_data.js';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      pictures: house.pictures,
+    };
   }
 
   // componentDidMount() {
@@ -22,7 +25,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <PhotoGallery />
+        <PhotoGallery pictures={this.state.pictures} />
         <Save />
       </div>
     );
