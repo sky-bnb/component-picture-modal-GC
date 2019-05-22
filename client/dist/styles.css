@@ -1,7 +1,10 @@
+body {
+  margin: 0px;
+}
 .container {
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
-  grid-template-rows: repeat(2, minmax(auto, 100px));
+  grid-template-rows: repeat(2, minmax(auto, 200px));
   /* max-height: 150px; */
 }
 
@@ -14,25 +17,29 @@
 .photo-1 {
   grid-column : 1/ span 2;
   grid-row: 1/ span 2; 
+  border: 1.5px solid#655F5F;
 }
 
 .photo-2 {
   grid-column: 3/ span 1;
   grid-row: 1/ span 1;
+  border: 1.5px solid#655F5F;;
 }
 
 .photo-3 {
   grid-column: 4/ span 1;
   grid-row: 1/ span 1;
+  border: 1.5px solid#655F5F;;
 }
 
 .photo-4 {
   grid-column: 3/ span 1; 
   grid-row: 2/ span 1;
+  border: 1.5px solid#655F5F;;
 }
 
 .photo-5 {
-
   grid-column: 4/ span 1;
   grid-row: 2/ span 1; 
+  border: 1.5px solid #655F5F;;
 }
