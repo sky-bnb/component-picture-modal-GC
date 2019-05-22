@@ -14,7 +14,7 @@ class PhotoGallery extends React.Component {
   render() {
     return (
       <div className="container">
-        <Photo1 url={this.props.pictures[0].url}/>
+        <Photo1 clickPicture={this.props.clickPicture} url={this.props.pictures[0].url}/>
         <Photo2 url={this.props.pictures[1].url}/>
         <Photo3 url={this.props.pictures[2].url}/>
         <Photo4 url={this.props.pictures[3].url}/>

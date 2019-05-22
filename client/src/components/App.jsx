@@ -3,13 +3,16 @@ import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
 import Save from './Save.jsx';
 import house from '../sample_data.js';
+import Modal from './Modal.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       pictures: house.pictures,
+      showModal: false,
     };
+    this.clickPicture = this.clickPicture.bind(this);
   }
 
   // componentDidMount() {
@@ -21,15 +24,28 @@ class App extends React.Component {
   //       console.log(house);
   //     });
   // }
+  clickPicture() {
+    console.log('was invoked')
+    this.setState({ showModal: true });
+  }
 
   render() {
+    if (this.state.showModal) {
+      return (
+        <div>
+          <Modal />
+          <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
+          <Save />
+        </div>
+      );
+    }
     return (
-      <div>
-        <PhotoGallery pictures={this.state.pictures} />
-        <Save />
-      </div>
+        <div>
+          <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
+          <Save />
+        </div>
     );
   }
 }
 
-export default App; 
+export default App;
