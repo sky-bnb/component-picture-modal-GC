@@ -8,7 +8,7 @@ class Modal extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="modal">
         <section className="modal-main">
           <button>close</button>
         </section>
