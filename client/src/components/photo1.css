@@ -7,5 +7,5 @@
 .photo-1 {
   grid-column : 1/ span 2;
   grid-row: 1/ span 2; 
-  border: 1.5px solid #2F2929;
+  border: 1px solid #2F2929;
 }

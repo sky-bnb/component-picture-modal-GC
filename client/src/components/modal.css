@@ -7,3 +7,37 @@
   z-index: 1;
   background-color: rgb(34, 33, 33, 1);
 }
+
+.x-button {
+  padding-top: 10px;
+  padding-right: 20px;
+  float:right;
+  position:relative;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 100;
+  color: #F4F4F4;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.right-button {
+  cursor: pointer;
+  font-size: 50px;
+  color: #F4F4F4;
+  font-weight: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  right: 0px;
+  top: 350px;
+  position: absolute;
+}
+
+.left-button {
+  cursor: pointer;
+  font-size: 50px;
+  color: #F4F4F4;
+  font-weight: 100;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  left: 0px;
+  top: 350px;
+  position: absolute;
+}

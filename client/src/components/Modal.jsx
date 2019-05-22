@@ -1,5 +1,6 @@
+/* eslint-disable react/button-has-type */
 import React from 'react';
-import modal from './modal.css';
+import './modal.css';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -7,14 +8,24 @@ class Modal extends React.Component {
     this.state = {};
   }
 
+  onButtonClick(e) {
+    e.preventDefault();
+    this.props.exitModal();
+  }
+
   render() {
-    return(
+    const leftButton = '<';
+    return (
       <div className="modal">
-        <section className="modal-main">
-          <button>close</button>
-        </section>
+        {/* <ModalPhoto />
+        <ModalPhotoList />
+        <Description />
+        <VerifiedPhoto /> */}
+        <div className="x-button" onClick={e => this.onButtonClick(e)}>X</div>
+        <div className="right-button">></div>
+        <div className="left-button">{leftButton}</div>
       </div>
-    )
+    );
   }
 }
 

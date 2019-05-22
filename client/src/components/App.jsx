@@ -13,6 +13,7 @@ class App extends React.Component {
       showModal: false,
     };
     this.clickPicture = this.clickPicture.bind(this);
+    this.exitModal = this.exitModal.bind(this);
   }
 
   // componentDidMount() {
@@ -24,6 +25,10 @@ class App extends React.Component {
   //       console.log(house);
   //     });
   // }
+  exitModal() {
+    this.setState({ showModal: false });
+  }
+
   clickPicture() {
     console.log('was invoked')
     this.setState({ showModal: true });
@@ -33,7 +38,7 @@ class App extends React.Component {
     if (this.state.showModal) {
       return (
         <div>
-          <Modal />
+          <Modal exitModal={this.exitModal} />
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
           <Save />
         </div>
