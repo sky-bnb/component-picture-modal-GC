@@ -1,4 +1,5 @@
 import React from 'react';
+import './photo4.css';
 
 class Photo4 extends React.Component {
   constructor(props) {

@@ -4,6 +4,7 @@ import Photo2 from './Photo2.jsx';
 import Photo3 from './Photo3.jsx';
 import Photo4 from './Photo4.jsx';
 import Photo5 from './Photo5.jsx';
+import './photoGallery.css';
 
 class PhotoGallery extends React.Component {
   constructor(props) {
