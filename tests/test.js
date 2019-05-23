@@ -1,6 +1,7 @@
 import React from 'react';
-import App from '../client/src/components/App.jsx';
 import { shallow, mount, render } from 'enzyme';
+import App from '../client/src/components/App.jsx';
+
 // import app from '../server/index.js';
 // import request from 'supertest';
 // import { db } from '../database/db.js';
@@ -17,11 +18,10 @@ import { shallow, mount, render } from 'enzyme';
 //   })
 // })
 
-describe('App component', () => {
-  it('renders two components'), () => {
-    const wrapper = shallow(<App />);
-    expect(wrapper.find(App)).to.have.lengthOf(2);
-  };
+describe('App Component Basic Test', () => {
+  it('renders', () => {
+    shallow(<App />);
+  });
 });
 
 // describe('GET /', () => {
