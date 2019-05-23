@@ -9,17 +9,19 @@ import './photoGallery.css';
 class PhotoGallery extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      pictures: this.props.pictures,
+    };
   }
 
   render() {
     return (
       <div className="container">
-        <Photo1 clickPicture={this.props.clickPicture} url={this.props.pictures[0].url}/>
-        <Photo2 url={this.props.pictures[1].url}/>
-        <Photo3 url={this.props.pictures[2].url}/>
-        <Photo4 url={this.props.pictures[3].url}/>
-        <Photo5 url={this.props.pictures[4].url}/>
+        <Photo1 clickPicture={this.props.clickPicture} picture={this.state.pictures[0]} />
+        <Photo2 picture={this.state.pictures[1]} />
+        <Photo3 picture={this.state.pictures[2]} />
+        <Photo4 picture={this.state.pictures[3]} />
+        <Photo5 picture={this.state.pictures[4]} />
       </div>
     )
   }

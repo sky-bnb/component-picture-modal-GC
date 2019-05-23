@@ -9,13 +9,20 @@ import { shallow, mount, render } from 'enzyme';
 //   db.on('open', done)
 // });
 
-describe('index component', () => {
-  it('see if enzyme works on React', () => {
+// describe('index component', () => {
+//   it('see if enzyme works on React', () => {
+//     const wrapper = shallow(<App />);
+//     const text = wrapper.find('#test').text();
+//     expect(text).toEqual('This is Modal');
+//   })
+// })
+
+describe('App component', () => {
+  it('renders two components'), () => {
     const wrapper = shallow(<App />);
-    const text = wrapper.find('#test').text();
-    expect(text).toEqual('This is Modal');
-  })
-})
+    expect(wrapper.find(App)).to.have.lengthOf(2);
+  };
+});
 
 // describe('GET /', () => {
 //   it('should respond with index.html', async () => {

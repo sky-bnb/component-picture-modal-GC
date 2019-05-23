@@ -11,6 +11,7 @@ class App extends React.Component {
     this.state = {
       pictures: house.pictures,
       showModal: false,
+      clickedPicture: null,
     };
     this.clickPicture = this.clickPicture.bind(this);
     this.exitModal = this.exitModal.bind(this);
@@ -29,23 +30,23 @@ class App extends React.Component {
     this.setState({ showModal: false });
   }
 
-  clickPicture() {
+  clickPicture(obj) {
     console.log('was invoked')
-    this.setState({ showModal: true });
+    this.setState({ showModal: true, clickedPicture: obj });
   }
 
   render() {
     if (this.state.showModal) {
       return (
         <div>
-          <Modal exitModal={this.exitModal} />
+          <Modal pictures={this.state.pictures} exitModal={this.exitModal} clickedPicture={this.state.clickedPicture}/>
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
           <Save />
         </div>
       );
     }
     return (
-        <div>
+        <div className="App">
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
           <Save />
         </div>
