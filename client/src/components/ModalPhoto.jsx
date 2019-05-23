@@ -1,4 +1,5 @@
 import React from 'react';
+import './ModalPhoto.css';
 
 class ModalPhoto extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class ModalPhoto extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.props.url} />
+        <div className='current-photo-container'>
+          <img className='current-photo' src={this.props.url} />
+        </div>
       </div>
     );
   }
