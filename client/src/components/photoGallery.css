@@ -3,6 +3,6 @@
   display: grid;
   grid-template-columns: repeat(4, minmax(200px, 1fr));
   grid-template-rows: repeat(2, minmax(auto, 200px));
-  /* max-height: 150px; */
 }
+
 

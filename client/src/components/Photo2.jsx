@@ -9,9 +9,15 @@ class Photo2 extends React.Component {
     };
   }
 
+  onPhotoClick(e) {
+    console.log('clicked');
+    e.preventDefault();
+    this.props.clickPicture(this.state.picture);
+  }
+
   render() {
     return (
-      <div className="photo-2">
+      <div className="photo-2" onClick={e => this.onPhotoClick(e)}>
         <img className="photo" src={this.state.picture.url} />
       </div>
     );

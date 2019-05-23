@@ -18,10 +18,13 @@ class PhotoGallery extends React.Component {
     return (
       <div className="container">
         <Photo1 clickPicture={this.props.clickPicture} picture={this.state.pictures[0]} />
-        <Photo2 picture={this.state.pictures[1]} />
-        <Photo3 picture={this.state.pictures[2]} />
-        <Photo4 picture={this.state.pictures[3]} />
-        <Photo5 picture={this.state.pictures[4]} />
+        <Photo2 clickPicture={this.props.clickPicture} picture={this.state.pictures[1]} />
+        <Photo3 clickPicture={this.props.clickPicture}
+        picture={this.state.pictures[2]} />
+        <Photo4 clickPicture={this.props.clickPicture}
+        picture={this.state.pictures[3]} />
+        <Photo5 clickPicture={this.props.clickPicture}
+        picture={this.state.pictures[4]} />
       </div>
     )
   }
