@@ -43,6 +43,24 @@ const house = {
       isVerified: false,
       _id: 6,
     },
+    {
+      description: 'withdrawal',
+      url: 'https://s3-us-west-1.amazonaws.com/bnbpictures/pic44.jpeg',
+      isVerified: false,
+      _id: 7,
+    },
+    {
+      description: 'Toys Chips',
+      url: 'https://s3-us-west-1.amazonaws.com/bnbpictures/pic28.jpeg',
+      isVerified: true,
+      _id: 8,
+    },
+    {
+      description: 'vortals lavender Avon',
+      url: 'https://s3-us-west-1.amazonaws.com/bnbpictures/pic36.jpeg',
+      isVerified: true,
+      _id: 9,
+    },
   ],
 };
 
