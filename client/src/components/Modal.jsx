@@ -52,6 +52,16 @@ class Modal extends React.Component {
     }
   }
 
+  onLeftClick(e) {
+    e.preventDefault();
+    if (this.state.currentPosition === 0) {
+      this.setState({currentPosition: this.state.length0}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+    }
+    else {
+      this.setState({currentPosition: this.state.currentPosition - 1}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+    }
+  }
+
   render() {
     const leftButton = '<';
     const rightButton = '>';
@@ -59,7 +69,7 @@ class Modal extends React.Component {
       <div className="modal">
         <div className="x-button" onClick={e => this.onButtonClick(e)}>X</div>
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
-        <div className="left-button">{leftButton}</div>
+        <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
         <ModalPhoto url={this.state.currentPicture.url} />
         <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
         <ModalPhotoList />
