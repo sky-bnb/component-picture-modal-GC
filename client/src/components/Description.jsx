@@ -5,12 +5,11 @@ class Description extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isVerified: this.props.isVerified,
     };
   }
 
   render() {
-    if (this.state.isVerified) {
+    if (this.props.isVerified) {
       return (
         <div className="description-container">
           <div className="description">{`${this.props.position}/${this.props.size}: ${this.props.description}`}</div>

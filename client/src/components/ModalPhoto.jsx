@@ -10,10 +10,8 @@ class ModalPhoto extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='current-photo-container'>
-          <img className='current-photo' src={this.props.url} />
-        </div>
+      <div className='current-photo-container'>
+        <img className='current-photo' src={this.props.url} />
       </div>
     );
   }

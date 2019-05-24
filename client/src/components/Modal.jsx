@@ -11,26 +11,26 @@ class Modal extends React.Component {
     this.state = {
       pictures: this.props.pictures,
       currentPicture: this.props.clickedPicture,
-      currentPosition: null,
-      currentIndex: null,
+      currentPosition: null, //0
+      length0: null, //6
     };
     this.getCurrentPosition = this.getCurrentPosition.bind(this);
     this.getNewPicture = this.getNewPicture.bind(this);
   }
 
   componentDidMount() {
-    this.setState({currentPosition: this.getCurrentPosition(this.state.currentPicture), currentIndex: this.getCurrentPosition(this.state.currentPicture) - 1});
+    this.setState({currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1});
   }
 
   getCurrentPosition(obj) {
-    let position;
+    let index;
     for (let i = 0; i < this.state.pictures.length; i++) {
       const picture = this.state.pictures[i];
       if (picture.url === obj.url) {
-        position = i + 1;
+        index = i;
       }
     }
-    return position;
+    return index;
   }
 
   onButtonClick(e) {
@@ -44,7 +44,12 @@ class Modal extends React.Component {
 
   onRightClick(e) {
     e.preventDefault();
-    this.setState({currentPosition: this.state.currentPosition + 1, currentIndex: this.state.currentIndex + 1}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentIndex)}));
+    if (this.state.currentPosition === this.state.length0) {
+      this.setState({currentPosition: 0}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+    }
+    else {
+      this.setState({currentPosition: this.state.currentPosition + 1}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+    }
   }
 
   render() {
@@ -56,7 +61,7 @@ class Modal extends React.Component {
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
         <div className="left-button">{leftButton}</div>
         <ModalPhoto url={this.state.currentPicture.url} />
-        <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition} size={this.state.pictures.length} description={this.state.currentPicture.description} />
+        <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
         <ModalPhotoList />
       </div>
     );
