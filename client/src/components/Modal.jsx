@@ -86,7 +86,7 @@ class Modal extends React.Component {
     const {pictures, currentPicture} = this.state;
     return (
       <div className="modal" tabIndex="0" onKeyDown={e => this.onModalKeyPress(e)}>
-        <div className="x-button" onClick={e => this.onButtonClick(e)}>X</div>
+        <div className="x-button" onClick={e => this.onButtonClick(e)}>x</div>
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
         <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
         <ModalPhoto url={this.state.currentUrl} />
