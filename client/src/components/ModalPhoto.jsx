@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import './ModalPhoto.css';
 
@@ -10,8 +11,8 @@ class ModalPhoto extends React.Component {
 
   render() {
     return (
-      <div className='current-photo-container'>
-        <img className='current-photo' src={this.props.url} />
+      <div className="current-photo-container">
+        <img className="current-photo" src={this.props.url} />
       </div>
     );
   }

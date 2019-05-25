@@ -1,3 +1,15 @@
+/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+/* eslint-disable no-shadow */
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-access-state-in-setstate */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/sort-comp */
+/* eslint-disable class-methods-use-this */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/button-has-type */
 import React from 'react';
 import './modal.css';
@@ -22,7 +34,7 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1 }, () => this.setState({ urls: this.getArrayUrl(this.state.pictures)}));
+    this.setState({ currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1 }, () => this.setState({ urls: this.getArrayUrl(this.state.pictures) }));
   }
 
   getArrayUrl(arr) {
@@ -83,7 +95,7 @@ class Modal extends React.Component {
   render() {
     const leftButton = '<';
     const rightButton = '>';
-    const {pictures, currentPicture} = this.state;
+    const { pictures, currentPicture } = this.state;
     return (
       <div className="modal" tabIndex="0" onKeyDown={e => this.onModalKeyPress(e)}>
         <div className="x-button" onClick={e => this.onButtonClick(e)}>x</div>
@@ -91,8 +103,8 @@ class Modal extends React.Component {
         <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
         <ModalPhoto url={this.state.currentUrl} />
         <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
-        <div className={`photo-carousel active-${this.state.currentPosition}`} style={{opacity: 1}}>
-          <div className="photo-carousel-wrapper" style={{transform: `translateX(-${this.state.currentPosition*(100/pictures.length)}%)`}}>
+        <div className={`photo-carousel active-${this.state.currentPosition}`} style={{ opacity: 1 }}>
+          <div className="photo-carousel-wrapper" style={{ transform: `translateX(-${this.state.currentPosition * (100 / pictures.length)}%)` }}>
             {
             pictures.map(currentPicture => <CarouselPic key={currentPicture._id} currentPicture={currentPicture} />)
             }

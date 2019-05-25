@@ -7,7 +7,7 @@
 }
 
 .carousel {
-  flex: 1;
   opacity: 0.5;
   transition: opacity 300ms linear;
+  flex: 1
 }

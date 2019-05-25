@@ -26,7 +26,7 @@ class PhotoGallery extends React.Component {
         <Photo5 clickPicture={this.props.clickPicture}
         picture={this.state.pictures[4]} />
       </div>
-    )
+    );
   }
 
 }

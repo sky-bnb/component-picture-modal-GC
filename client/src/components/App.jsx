@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
@@ -23,15 +24,17 @@ class App extends React.Component {
   //     url: '/house/110',
   //   })
   //     .then((house) => {
-  //       console.log(house);
+  //       console.log('server data', house.data.pictures)
+  //       this.setState({pictures: house.data.pictures});
   //     });
   // }
+
   exitModal() {
     this.setState({ showModal: false });
   }
 
   clickPicture(obj) {
-    console.log('was invoked')
+    console.log('was invoked');
     this.setState({ showModal: true, clickedPicture: obj });
   }
 
@@ -46,7 +49,7 @@ class App extends React.Component {
       );
     }
     return (
-        <div className="App">
+      <div className="App">
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
           <Save />
         </div>
