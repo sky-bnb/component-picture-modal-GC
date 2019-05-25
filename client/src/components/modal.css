@@ -41,3 +41,15 @@
   top: 350px;
   position: absolute;
 }
+
+.photo-carousel-wrapper {
+  display: flex;
+  position: absolute;
+  transition: transform 300ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.photo-carousel {
+  position: relative;
+  width: 100px;
+  margin: 0;
+}

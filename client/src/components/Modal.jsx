@@ -3,7 +3,8 @@ import React from 'react';
 import './modal.css';
 import ModalPhoto from './ModalPhoto.jsx';
 import Description from './Description.jsx';
-import Carousel from './Carousel.jsx';
+// import Carousel from './Carousel.jsx';
+import CarouselPic from './CarouselPic.jsx';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -11,9 +12,10 @@ class Modal extends React.Component {
     this.state = {
       pictures: this.props.pictures,
       currentPicture: this.props.clickedPicture,
-      currentPosition: null, //0
-      length0: null, //6
+      currentPosition: null, // 0
+      length0: null, // 6
       urls: [],
+      currentUrl: this.props.clickedPicture.url,
     };
     this.getCurrentPosition = this.getCurrentPosition.bind(this);
     this.getNewPicture = this.getNewPicture.bind(this);
@@ -21,13 +23,13 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1}, () => this.setState({urls: this.getArrayUrl(this.state.pictures)}));
+    this.setState({ currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1 }, () => this.setState({ urls: this.getArrayUrl(this.state.pictures)}));
   }
 
   getArrayUrl(arr) {
-    let result = [];
+    const result = [];
     for (let i = 0; i < arr.length; i++) {
-      result.push(arr[i].url)
+      result.push(arr[i].url);
     }
     return result;
   }
@@ -49,40 +51,46 @@ class Modal extends React.Component {
   }
 
   getNewPicture(index) {
-    return this.state.pictures[index]
+    return this.state.pictures[index];
   }
 
   onRightClick(e) {
     e.preventDefault();
     if (this.state.currentPosition === this.state.length0) {
-      this.setState({currentPosition: 0}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
-    }
-    else {
-      this.setState({currentPosition: this.state.currentPosition + 1}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+      this.setState({ currentPosition: 0 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+    } else {
+      this.setState({ currentPosition: this.state.currentPosition + 1 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
     }
   }
 
   onLeftClick(e) {
     e.preventDefault();
     if (this.state.currentPosition === 0) {
-      this.setState({currentPosition: this.state.length0}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
-    }
-    else {
-      this.setState({currentPosition: this.state.currentPosition - 1}, () => this.setState({currentPicture: this.getNewPicture(this.state.currentPosition)}));
+      this.setState({ currentPosition: this.state.length0 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+    } else {
+      this.setState({ currentPosition: this.state.currentPosition - 1 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
     }
   }
 
   render() {
     const leftButton = '<';
     const rightButton = '>';
+    const {pictures, currentPicture} = this.state;
     return (
       <div className="modal">
         <div className="x-button" onClick={e => this.onButtonClick(e)}>X</div>
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
         <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
-        <ModalPhoto url={this.state.currentPicture.url} />
+        <ModalPhoto url={this.state.currentUrl} />
         <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
-        <Carousel urls={this.state.urls} />
+        {/* <Carousel urls={this.state.urls} /> */}
+        <div className={`photo-carousel active-${this.state.currentPosition}`} style={{opacity: 1}}>
+          <div className="photo-carousel-wrapper" style={{transform: `translateX(-${this.state.currentPosition*(100/pictures.length)}%)`}}>
+            {
+            pictures.map(currentPicture => <CarouselPic key={currentPicture._id} currentPicture={currentPicture} />)
+            }
+          </div>
+        </div>
       </div>
     );
   }
