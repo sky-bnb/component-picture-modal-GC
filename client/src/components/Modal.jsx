@@ -3,7 +3,6 @@ import React from 'react';
 import './modal.css';
 import ModalPhoto from './ModalPhoto.jsx';
 import Description from './Description.jsx';
-// import Carousel from './Carousel.jsx';
 import CarouselPic from './CarouselPic.jsx';
 
 class Modal extends React.Component {
@@ -72,18 +71,26 @@ class Modal extends React.Component {
     }
   }
 
+  onModalKeyPress(e) {
+    if (e.key === 'ArrowRight') {
+      this.onRightClick(e);
+    }
+    if (e.key === 'ArrowLeft') {
+      this.onLeftClick(e);
+    }
+  }
+
   render() {
     const leftButton = '<';
     const rightButton = '>';
     const {pictures, currentPicture} = this.state;
     return (
-      <div className="modal">
+      <div className="modal" tabIndex="0" onKeyDown={e => this.onModalKeyPress(e)}>
         <div className="x-button" onClick={e => this.onButtonClick(e)}>X</div>
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
         <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
         <ModalPhoto url={this.state.currentUrl} />
         <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
-        {/* <Carousel urls={this.state.urls} /> */}
         <div className={`photo-carousel active-${this.state.currentPosition}`} style={{opacity: 1}}>
           <div className="photo-carousel-wrapper" style={{transform: `translateX(-${this.state.currentPosition*(100/pictures.length)}%)`}}>
             {

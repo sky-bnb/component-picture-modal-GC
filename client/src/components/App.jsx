@@ -39,7 +39,7 @@ class App extends React.Component {
     if (this.state.showModal) {
       return (
         <div>
-          <Modal pictures={this.state.pictures} exitModal={this.exitModal} clickedPicture={this.state.clickedPicture}/>
+          <Modal pictures={this.state.pictures} exitModal={this.exitModal} clickedPicture={this.state.clickedPicture} />
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
           <Save />
         </div>
