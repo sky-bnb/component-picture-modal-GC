@@ -8,4 +8,5 @@
   grid-column: 4/ span 1;
   grid-row: 2/ span 1; 
   border: 1px solid #2F2929;
+  cursor: pointer;
 }

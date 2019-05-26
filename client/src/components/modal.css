@@ -42,6 +42,18 @@
   position: absolute;
 }
 
+.main-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  align-items: center;
+}
+
+.container-center {
+  align-items: flex-start;
+  width: 813px;
+}
+
 .photo-carousel-wrapper {
   display: flex;
   position: absolute;
@@ -54,11 +66,5 @@
   margin: 0;
 }
 
-.carousel-container {
-  /* max-width: 105vh !important;
-  margin-left: 140px; */
-  display: flex;
-  justify-content: start;
-  align-items: center;
-}
+
 
