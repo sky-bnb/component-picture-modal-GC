@@ -24,8 +24,7 @@ class App extends React.Component {
   //     url: '/house/110',
   //   })
   //     .then((house) => {
-  //       console.log('server data', house.data.pictures)
-  //       this.setState({pictures: house.data.pictures});
+  //       this.setState({pictures: house.data.pictures}, () => console.log('set state', house.data.pictures));
   //     });
   // }
 
@@ -50,9 +49,9 @@ class App extends React.Component {
     }
     return (
       <div className="App">
-          <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
-          <Save />
-        </div>
+        <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
+        <Save />
+      </div>
     );
   }
 }

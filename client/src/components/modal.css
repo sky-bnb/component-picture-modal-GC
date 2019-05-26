@@ -58,7 +58,7 @@
   /* max-width: 105vh !important;
   margin-left: 140px; */
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
