@@ -1,6 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
 import Save from './Save.jsx';
 import house from '../sample_data.js';
