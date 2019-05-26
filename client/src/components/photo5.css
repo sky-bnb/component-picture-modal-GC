@@ -1,0 +1,12 @@
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-5 {
+  grid-column: 4/ span 1;
+  grid-row: 2/ span 1; 
+  border: 1px solid #2F2929;
+  cursor: pointer;
+}
