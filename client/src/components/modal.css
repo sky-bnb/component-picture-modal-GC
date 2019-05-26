@@ -54,3 +54,11 @@
   margin: 0;
 }
 
+.carousel-container {
+  /* max-width: 105vh !important;
+  margin-left: 140px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
