@@ -2,7 +2,6 @@
 import React from 'react';
 // import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
-import Save from './Save.jsx';
 import house from '../sample_data.js';
 import Modal from './Modal.jsx';
 
@@ -43,14 +42,12 @@ class App extends React.Component {
         <div>
           <Modal pictures={this.state.pictures} exitModal={this.exitModal} clickedPicture={this.state.clickedPicture} />
           <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
-          <Save />
         </div>
       );
     }
     return (
       <div className="App">
         <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
-        <Save />
       </div>
     );
   }
