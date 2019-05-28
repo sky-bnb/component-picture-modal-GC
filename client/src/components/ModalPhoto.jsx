@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import './ModalPhoto.css';
+import '../ModalPhoto.css';
 
 class ModalPhoto extends React.Component {
   constructor(props) {

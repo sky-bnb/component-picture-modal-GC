@@ -12,7 +12,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/button-has-type */
 import React from 'react';
-import './modal.css';
+import '../modal.css';
 import ModalPhoto from './ModalPhoto.jsx';
 import Description from './Description.jsx';
 import Carousel from './Carousel.jsx';

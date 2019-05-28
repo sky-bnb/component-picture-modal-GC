@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
-import './carouselPic.css';
+import '../carouselPic.css';
 
 class CarouselPic extends React.Component {
   constructor(props) {

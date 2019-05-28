@@ -1,6 +1,6 @@
 import React from 'react';
-import './photo.css';
-import './photoGallery.css';
+import '../photo.css';
+import '../photoGallery.css';
 
 class Photo extends React.Component {
   constructor(props) {
