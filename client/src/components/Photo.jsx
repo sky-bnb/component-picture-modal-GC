@@ -1,5 +1,6 @@
 import React from 'react';
 import './photo.css';
+import './photoGallery.css';
 
 class Photo extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Photo extends React.Component {
   }
 
   render() {
-    const className = `photo-${this.props.unique}`
+    const className = `wrapper photo-${this.props.unique}`
     return (
       <div className={className} onClick={e => this.onPhotoClick(e)}>
         <img className='photo' src={this.state.picture.url}/>
