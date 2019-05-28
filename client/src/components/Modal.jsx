@@ -111,12 +111,16 @@ class Modal extends React.Component {
         <div className="x-button" onClick={e => this.onButtonClick(e)}>x</div>
         <div className="right-button" onClick={e => this.onRightClick(e)}>{rightButton}</div>
         <div onClick={e => this.onLeftClick(e)} className="left-button">{leftButton}</div>
-        <div className='main-container'>
-          <div className='container-center'>
-            <ModalPhoto url={this.state.currentUrl} />
-            <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
-            <Carousel transform={transform} pictures={pictures} currentPosition={currentPosition} />
+        <div className='container-main'>
+          <div className='container-sides' />
+          <div className='container-column'>
+            <div className='container-center'>
+              <ModalPhoto url={this.state.currentUrl} />
+              <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
+              <Carousel transform={transform} pictures={pictures} currentPosition={currentPosition} />
+            </div>
           </div>
+          <div className='container-sides' />
         </div>
       </div>
     );

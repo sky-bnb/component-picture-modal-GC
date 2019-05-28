@@ -9,9 +9,12 @@
 }
 
 .x-button {
-  padding-top: 3px;
-  padding-right: 28px;
-  float:right;
+  /* padding-top: 3px;
+  padding-right: 28px; */
+  float: right;
+  margin-left: -60px;
+  padding-right: 20px;
+  z-index: 4;
   position:relative;
   cursor: pointer;
   font-size: 60px;
@@ -29,6 +32,7 @@
   right: 0px;
   top: 350px;
   position: absolute;
+  z-index: 4;
 }
 
 .left-button {
@@ -40,9 +44,24 @@
   left: 0px;
   top: 350px;
   position: absolute;
+  z-index: 3;
 }
 
-.main-container {
+.container-main {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.container-sides {
+  flex: 1;
+  height: 800px;
+  background-color: rgb(34, 33, 33, 1);
+  z-index: 2;
+  bottom: 0;
+}
+
+.container-column {
   display: flex;
   flex-direction: column;
   margin-top: 60px;
