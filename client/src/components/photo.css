@@ -47,4 +47,5 @@
 .photo:hover {
   transform: scale(1.2);
   opacity: 1.0 !important;
+  transition: 0.5s;
 }

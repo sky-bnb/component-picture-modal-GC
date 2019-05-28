@@ -1,15 +1,14 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 import PhotoGallery from './PhotoGallery.jsx';
-import house from '../sample_data.js';
 import Modal from './Modal.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pictures: house.pictures,
+      pictures: [],
       showModal: false,
       clickedPicture: null,
     };
@@ -17,15 +16,16 @@ class App extends React.Component {
     this.exitModal = this.exitModal.bind(this);
   }
 
-  // componentDidMount() {
-  //   axios({
-  //     method: 'get',
-  //     url: '/house/110',
-  //   })
-  //     .then((house) => {
-  //       this.setState({pictures: house.data.pictures}, () => console.log('set state', house.data.pictures));
-  //     });
-  // }
+  componentDidMount() {
+    axios({
+      method: 'get',
+      url: '/house/110',
+    })
+      .then((house) => {
+        console.log(house)
+        this.setState({pictures: house.data.pictures}, () => console.log('set state', house.data.pictures));
+      });
+  }
 
   exitModal() {
     this.setState({ showModal: false });
@@ -47,7 +47,7 @@ class App extends React.Component {
     }
     return (
       <div className="App">
-        <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures} />
+        <PhotoGallery clickPicture={this.clickPicture} pictures={this.state.pictures.slice(0, 5)} />
       </div>
     );
   }
