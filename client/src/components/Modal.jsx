@@ -15,7 +15,7 @@ import React from 'react';
 import './modal.css';
 import ModalPhoto from './ModalPhoto.jsx';
 import Description from './Description.jsx';
-import CarouselPic from './CarouselPic.jsx';
+import Carousel from './Carousel.jsx';
 
 class Modal extends React.Component {
   constructor(props) {
@@ -27,6 +27,7 @@ class Modal extends React.Component {
       length0: null, // 6
       urls: [],
       currentUrl: this.props.clickedPicture.url,
+      transform: 0,
     };
     this.getCurrentPosition = this.getCurrentPosition.bind(this);
     this.getNewPicture = this.getNewPicture.bind(this);
@@ -34,7 +35,7 @@ class Modal extends React.Component {
   }
 
   componentDidMount() {
-    this.setState({ currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1 }, () => this.setState({ urls: this.getArrayUrl(this.state.pictures) }));
+    this.setState({ currentPosition: this.getCurrentPosition(this.state.currentPicture), length0: this.state.pictures.length - 1 }, () => this.setState({ urls: this.getArrayUrl(this.state.pictures), transformEnd: -110*this.state.length0 }));
   }
 
   getArrayUrl(arr) {
@@ -68,18 +69,27 @@ class Modal extends React.Component {
   onRightClick(e) {
     e.preventDefault();
     if (this.state.currentPosition === this.state.length0) {
-      this.setState({ currentPosition: 0 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+      this.setState({ currentPosition: 0, transform: 0 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
     } else {
       this.setState({ currentPosition: this.state.currentPosition + 1 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+      if (this.state.currentPosition > 2) {
+        this.setState({transform: this.state.transform - 110});
+      };
     }
   }
 
   onLeftClick(e) {
     e.preventDefault();
     if (this.state.currentPosition === 0) {
-      this.setState({ currentPosition: this.state.length0 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+      this.setState({ currentPosition: this.state.length0,transform: this.state.transformEnd }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition)}, () => this.setState({ currentUrl: this.state.currentPicture.url })));
     } else {
-      this.setState({ currentPosition: this.state.currentPosition - 1 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition) }, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+      this.setState({ currentPosition: this.state.currentPosition - 1 }, () => this.setState({ currentPicture: this.getNewPicture(this.state.currentPosition)}, () => this.setState({ currentUrl: this.state.currentPicture.url })));
+      if (this.state.currentPosition === 4) {
+        this.setState({transform: 0})
+      }
+      if (this.state.currentPosition > 4) {
+        this.setState({transform: this.state.transform + 110 });
+      }
     }
   }
 
@@ -95,7 +105,7 @@ class Modal extends React.Component {
   render() {
     const leftButton = '<';
     const rightButton = '>';
-    const { pictures, currentPicture } = this.state;
+    const { pictures, currentPosition, transform } = this.state;
     return (
       <div className="modal" tabIndex="0" onKeyDown={e => this.onModalKeyPress(e)}>
         <div className="x-button" onClick={e => this.onButtonClick(e)}>x</div>
@@ -105,13 +115,7 @@ class Modal extends React.Component {
           <div className='container-center'>
             <ModalPhoto url={this.state.currentUrl} />
             <Description isVerified={this.state.currentPicture.isVerified} position={this.state.currentPosition + 1} size={this.state.length0 + 1} description={this.state.currentPicture.description} />
-            <div className={`photo-carousel active-${this.state.currentPosition}`} style={{ opacity: 1 }}>
-              <div className="photo-carousel-wrapper" style={{ transform: `translateX(-${this.state.currentPosition * (100 / pictures.length)}%)` }}>
-                {
-                pictures.map(currentPicture => <CarouselPic key={currentPicture._id} currentPicture={currentPicture} />)
-                }
-              </div>
-            </div>
+            <Carousel transform={transform} pictures={pictures} currentPosition={currentPosition} />
           </div>
         </div>
       </div>

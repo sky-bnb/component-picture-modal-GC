@@ -3,11 +3,19 @@
   width: 100px;
   height: 67px;
   padding: 6px;
+  opacity: 0.3;
   /* float: left; */
 }
 
-.carousel {
-  opacity: 0.5;
+.carousel-slider {
   transition: opacity 300ms linear;
   flex: 1
+}
+
+.carousel-img-bright {
+  object-fit: cover;
+  width: 100px;
+  height: 67px;
+  padding: 6px;
+  opacity: 1;
 }
