@@ -50,7 +50,7 @@ class Modal extends React.Component {
     let index;
     for (let i = 0; i < this.state.pictures.length; i++) {
       const picture = this.state.pictures[i];
-      if (picture.url === obj.url) {
+      if (picture._id === obj._id) {
         index = i;
       }
     }

@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount() {
     axios({
       method: 'get',
-      url: '/house/110',
+      url: '/house/115',
     })
       .then((house) => {
         console.log(house)
