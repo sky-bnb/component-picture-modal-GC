@@ -4,6 +4,7 @@
   height: 67px;
   padding: 6px;
   opacity: 0.3;
+  cursor: pointer;
   /* float: left; */
 }
 
@@ -18,4 +19,5 @@
   height: 67px;
   padding: 6px;
   opacity: 1;
+  cursor: pointer;
 }

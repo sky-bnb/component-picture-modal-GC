@@ -1,34 +1,24 @@
 import React from 'react';
-import Photo1 from './Photo1.jsx';
-import Photo2 from './Photo2.jsx';
-import Photo3 from './Photo3.jsx';
-import Photo4 from './Photo4.jsx';
-import Photo5 from './Photo5.jsx';
+import Photo from './Photo.jsx';
 import './photoGallery.css';
 
 class PhotoGallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pictures: this.props.pictures,
+      pictures: this.props.pictures.slice(0, 5),
     };
   }
 
   render() {
     return (
-      <div className="container">
-        <Photo1 clickPicture={this.props.clickPicture} picture={this.state.pictures[0]} />
-        <Photo2 clickPicture={this.props.clickPicture} picture={this.state.pictures[1]} />
-        <Photo3 clickPicture={this.props.clickPicture}
-        picture={this.state.pictures[2]} />
-        <Photo4 clickPicture={this.props.clickPicture}
-        picture={this.state.pictures[3]} />
-        <Photo5 clickPicture={this.props.clickPicture}
-        picture={this.state.pictures[4]} />
+      <div className='background-container'>
+        <div className="container">
+          {this.state.pictures.map((picture, index) => <Photo key={index} unique={index} clickPicture={this.props.clickPicture} picture={picture} />)}
+        </div>
       </div>
     );
   }
-
 }
 
 export default PhotoGallery;

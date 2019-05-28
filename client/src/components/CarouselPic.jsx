@@ -19,9 +19,9 @@ class CarouselPic extends React.Component {
       );
     }
     return (
-        <div className="carousel-slider">
-          <img className="carousel-img" src={this.props.url} />
-        </div>
+      <div className="carousel-slider">
+        <img className="carousel-img" src={this.props.url} />
+      </div>
     );
   }
 }

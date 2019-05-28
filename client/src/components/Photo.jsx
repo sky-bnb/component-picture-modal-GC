@@ -1,7 +1,7 @@
 import React from 'react';
-import './photo3.css';
+import './photo.css';
 
-class Photo3 extends React.Component {
+class Photo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,12 +16,13 @@ class Photo3 extends React.Component {
   }
 
   render() {
+    const className = `photo-${this.props.unique}`
     return (
-      <div className="photo-3" onClick={e => this.onPhotoClick(e)}>
-        <img className="photo" src={this.state.picture.url} />
+      <div className={className} onClick={e => this.onPhotoClick(e)}>
+        <img className='photo' src={this.state.picture.url}/>
       </div>
-    );
+    )
   }
 }
 
-export default Photo3;
+export default Photo; 
