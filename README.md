@@ -16,10 +16,10 @@ Photo Gallery Module for Sky Bnb
 - npm run react-dev
 - npm run server-dev
 
-##R equirements
--Need MongDB version 4.03 installed
+## R equirements
+- Need MongDB version 4.03 installed
 
 ## Development
 ### Installing Dependencies
--npm install 
+- npm install 
 
