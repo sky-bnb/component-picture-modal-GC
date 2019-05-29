@@ -1,13 +1,6 @@
-/* .current-photo-container {
-  display: flex;
-  align-items: center;
-} */
-
 .current-photo {
   width: 813px;
   height: 510px;
   object-fit: cover;
-  /* text-align: center; */
-  /* margin-top: 100px; */
   padding-bottom: 1px;
 } 

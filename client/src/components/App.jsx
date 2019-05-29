@@ -22,8 +22,7 @@ class App extends React.Component {
       url: '/house/115',
     })
       .then((house) => {
-        console.log(house)
-        this.setState({pictures: house.data.pictures}, () => console.log('set state', house.data.pictures));
+        this.setState({pictures: house.data.pictures});
       });
   }
 
@@ -32,7 +31,6 @@ class App extends React.Component {
   }
 
   clickPicture(obj) {
-    console.log('was invoked');
     this.setState({ showModal: true, clickedPicture: obj });
   }
 

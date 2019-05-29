@@ -10,7 +10,6 @@ class Photo extends React.Component {
   }
 
   onPhotoClick(e) {
-    console.log('clicked');
     e.preventDefault();
     this.props.clickPicture(this.props.picture);
   }
