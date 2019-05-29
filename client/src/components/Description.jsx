@@ -1,5 +1,5 @@
 import React from 'react';
-import './description.css';
+import '../description.css';
 
 class Description extends React.Component {
   constructor(props) {
