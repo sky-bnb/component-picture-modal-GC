@@ -14,16 +14,23 @@ class App extends React.Component {
     };
     this.clickPicture = this.clickPicture.bind(this);
     this.exitModal = this.exitModal.bind(this);
+    this.getRandomId = this.getRandomId.bind(this);
+  }
+
+  getRandomId(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
   }
 
   componentDidMount() {
-    axios({
-      method: 'get',
-      url: '/house/115',
-    })
-      .then((house) => {
-        this.setState({pictures: house.data.pictures});
-      });
+    this.setState({id: this.getRandomId(100, 201)},() => 
+      axios({
+        method: 'get',
+        url: `http://127.0.0.1:3002/house/${this.state.id}`,
+      })
+        .then((house) => {
+          this.setState({pictures: house.data.pictures});
+        })
+    ) 
   }
 
   exitModal() {
