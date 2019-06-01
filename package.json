@@ -6,8 +6,9 @@
   "scripts": {
     "test": "jest",
     "react-dev": "webpack -d --watch",
-    "server-dev": "nodemon ./server/server.js",
-    "seed": "node database/seed.js"
+    "server-dev": "node ./server/server.js",
+    "seed": "node database/seed.js",
+    "deploy": "npm run seed && npm run server-dev"
   },
   "keywords": [],
   "author": "",

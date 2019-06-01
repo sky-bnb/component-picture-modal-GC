@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+  component-picture-modal-gc:
+    image: component-picture-modal-gc
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3002:3002
+      - 9229:9229
+    command: node --inspect=0.0.0.0:9229 index.js

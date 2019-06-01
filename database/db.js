@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const db = mongoose.connection;
 
-mongoose.connect('mongodb://localhost/house', { useMongoClient: true });
+mongoose.connect('mongodb://172.17.0.2/house', { useMongoClient: true });
 
 const houseSchema = new mongoose.Schema({
   house_id: Number,

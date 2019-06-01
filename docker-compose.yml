@@ -1,0 +1,10 @@
+version: '2.1'
+
+services:
+  component-picture-modal-gc:
+    image: component-picture-modal-gc
+    build: .
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3002:3002

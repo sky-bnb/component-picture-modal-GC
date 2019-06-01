@@ -25,7 +25,7 @@ class App extends React.Component {
     this.setState({id: this.getRandomId(100, 201)},() => 
       axios({
         method: 'get',
-        url: `http://127.0.0.1:3002/house/${this.state.id}`,
+        url: `http://54.167.221.177/house/${this.state.id}`,
       })
         .then((house) => {
           this.setState({pictures: house.data.pictures});
